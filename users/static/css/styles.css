@@ -1,0 +1,20 @@
+body {
+    background: #fafafa;
+    margin-top: 8px;
+}
+
+.landing-page {
+    text-align: left;
+}
+
+.form-field {
+    padding: 10px 20px;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    width: 400px;
+}
+
+.logo {
+    margin-left: 90px
+}
