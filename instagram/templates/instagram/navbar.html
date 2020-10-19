@@ -45,18 +45,23 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img class="rounded-circle" src="{{ user.profile.image_url.url }}" width="20" height="20" alt="">
+                        <img class="rounded-circle" src="{{ user.profile.image_url.url}}"  width="25" height="25" alt="">
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{%url 'profile'%}">Profile</a>
-                        <a class="dropdown-item" href="#">Saved</a>
+                        <a class="dropdown-item" href="#">Registered Doctors</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                        <a class="dropdown-item" href="#">Online Doctors</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Live chat</a>
                     </div>
                 </li>
             </ul>
         </div>
     </nav> 
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 </body>
 
 </html> 
