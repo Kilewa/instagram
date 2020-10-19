@@ -2,8 +2,11 @@
 {% load static%}
 {%load bootstrap4%}
 
+
+
+
 {%block content%}
-{% include 'instagram/navbar.html'%}
+
 
 
 <div class="row">
@@ -11,7 +14,12 @@
     <div class="col-4"></div>
     <div class="col-4">
         {% for post in posts %}
-            <img src="{{ post.image.url }}" alt="post.image_name">
+        {% if post.image %}
+        <img src="{{ post.image.url }}" alt="post.image_name">
+        {% endif %}
+
+        <h4>{{ post.image_name}}</h4>
+        
         {% endfor %}
     </div>
     <div class="col-4"></div>

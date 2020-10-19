@@ -7,7 +7,11 @@ from . forms import CommentForm, PostForm
 
 @login_required
 def home(request):
-    return render(request, 'instagram/home.html')
+    posts = Post.get_all_images()
+    context = {
+        'posts': posts
+    }
+    return render(request, 'instagram/home.html', context)
 
 
 
@@ -16,7 +20,7 @@ def post(request):
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('home')
+            return redirect('instagram-home')
     else:        
         form = PostForm()
     return render(request, 'instagram/post.html', {'form': form}) 

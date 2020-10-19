@@ -137,5 +137,3 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL = 'instagram-home'
 LOGIN_URL = 'login'
-
-AUTH_PROFILE_MODULE = 'accounts.UserProfile'

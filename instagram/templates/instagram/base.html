@@ -39,6 +39,10 @@
     {% endfor %}
     {% endif %}
     </div>
+
+    {% block navbar%}
+    {% include 'instagram/navbar.html'%}
+    {% endblock%}
     {% block content %}{% endblock %}
 </body>
 
