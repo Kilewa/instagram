@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from .models import Post, User, Comment, Profile
 from . forms import CommentForm, PostForm
+from friendship.models import Friend, Follow, Block
 
 
 

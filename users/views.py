@@ -3,7 +3,6 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import UserRegisterForm,UserUpdateForm, ProfileUpdateForm
 from django.contrib.auth.models import User
-from friendship.models import Friend, Follow, Block
 
 
 
@@ -23,6 +22,7 @@ def register(request):
 
 @login_required
 def profile(request):
+
     return render(request, 'users/profile.html')    
 
 def edit_profile(request):
