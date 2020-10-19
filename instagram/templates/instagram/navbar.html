@@ -29,7 +29,6 @@
                         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"type="submit">
                     </form>
                 </li>
-                &nbsp;&nbsp;&nbsp;&nbsp;
                 <li class="nav-item">
                     <a class="nav-link" href="#"><span><i class="fas fa-home"></i></span></a>
                 </li>
@@ -43,8 +42,17 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#"><span><i class="fa fa-heart mr-1"></i></span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{%url 'profile'%}"><span><i class="fas fa-user-circle mr-1"></i></span></a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img class="rounded-circle" src="{{ user.profile.image_url.url }}" width="20" height="20" alt="">
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{%url 'profile'%}">Profile</a>
+                        <a class="dropdown-item" href="#">Saved</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                    </div>
                 </li>
             </ul>
         </div>

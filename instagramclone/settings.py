@@ -71,6 +71,13 @@ TEMPLATES = [
     },
 ]
 
+
+UPLOADCARE = {
+    'pub_key': '20763ec2f95f39d91f43',
+    'secret': '11c84590ed5b5c58f5d9',
+}
+
+
 WSGI_APPLICATION = 'instagramclone.wsgi.application'
 
 

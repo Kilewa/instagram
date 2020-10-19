@@ -1,12 +1,11 @@
 {%extends 'instagram/base.html'%}
 {% load static%}
+{%load bootstrap4%}
 
+{%block content%}
 
-{% block content %}
-{% include "instagram/navbar.html" %}
+<div class="col-3">this me</div>
+<div class="col-3">this is me too</div>
+<div class="col-3">this me again</div>
 
-
-{{block.super}}
-
-<h1 class="text-center">Welcome to instgram clone</h1>
-{% endblock %} 
+{%endblock%}
