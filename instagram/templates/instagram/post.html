@@ -1,0 +1,21 @@
+{% extends "instagram/base.html" %}
+{% load bootstrap4 %}
+{% load static%}
+{% load crispy_forms_tags %}
+
+{% block content %} 
+<h3 class="text-center pt-10">Create A Post</h3>
+<div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form | crispy  }}
+                <button type="submit" class="btn btn-outline-info">Submit post</button>
+            </form>
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>
+{% endblock %}

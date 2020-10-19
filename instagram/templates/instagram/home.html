@@ -3,9 +3,20 @@
 {%load bootstrap4%}
 
 {%block content%}
+{% include 'instagram/navbar.html'%}
 
-<div class="col-3">this me</div>
-<div class="col-3">this is me too</div>
-<div class="col-3">this me again</div>
+
+<div class="row">
+
+    <div class="col-4"></div>
+    <div class="col-4">
+        {% for post in posts %}
+            <img src="{{ post.image.url }}" alt="post.image_name">
+        {% endfor %}
+    </div>
+    <div class="col-4"></div>
+    
+</div>
+
 
 {%endblock%}

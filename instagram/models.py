@@ -5,7 +5,7 @@ from pyuploadcare.dj.models import ImageField
 from users.models import Profile
 
 
-class Image(models.Model):
+class Post(models.Model):
     image = models.ImageField(upload_to='photos/')
     image_name = models.CharField(max_length=50)
     image_caption = models.CharField(max_length=100, default='')
@@ -40,7 +40,7 @@ class Image(models.Model):
 class Comment(models.Model):
     comment = models.CharField(max_length=300)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    post = models.ForeignKey(Image, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
     date_posted = models.DateTimeField(auto_now=True)
 
     def __str__(self):
