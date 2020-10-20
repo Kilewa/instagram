@@ -8,8 +8,9 @@ from users.models import Profile
 class Post(models.Model):
     image = models.ImageField(upload_to='photos/')
     image_name = models.CharField(max_length=50)
+    date_posted = models.DateTimeField(auto_now_add=True,null=True)
     image_caption = models.CharField(max_length=100, default='')
-    likes = models.IntegerField(default=0, null=True)
+    likes = models.ManyToManyField(User, related_name= 'likes', blank = True)
     user_profile = models.ForeignKey(Profile, on_delete=models.CASCADE,null=True)
 
     def __str__(self):

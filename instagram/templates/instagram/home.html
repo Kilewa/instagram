@@ -3,39 +3,52 @@
 {%load bootstrap4%}
 
 {%block content%}
-<div class="row">
-    <div class="col-4"></div>
-    <div class="col-4">
-        <div class="post">
-            <a href="{% url 'post' %}"><button style="padding: 30px;" class="btn btn-info">Add A Post</button></a>
-        </div>
-    </div>
-    <div class="col-4"></div>
+<div class="container">
+    <div class="row">
+        <div class="post text-center" style="justify-content: center;">
+            {% for post in posts %}
 
-    <div class="col-4"></div>
-    <div class="col-4 card">
-        {% for post in posts %}
-        {% if post.image %}
-        <img class="rounded-circle article-img" src="{{ post.profile.image_url.url }}">
-        <img src="{{ post.image.url }}" alt="post.image_name" width="400" height="500">
-        {% endif %}
-        <div class="row">
-            <div class="col-4 nav-item"><a class="nav-link" href="#"><span><i class="fa fa-heart"></i></span></a></div>
-            <div class="col-4 nav-item"><a class="nav-link" href="#"><span><i class="far fa-comment"></i></span></a></div>
-            <div class="col-4 nav-item"><a class="nav-link" href="#"><span><i class="far fa-paper-plane "></i></span></a></div>
-        </div>
-        <p>40 likes</p>
-        <div class="row">
-            <div class="col-6"> <a href="{% url 'profile'%}"><p>{{ user.username}}</p></a> </div>
-            <div class="col-6">
-                <p>{{ post.image_caption}}</p>
+            <div class="card mb-4 mt-4 text-center">
+                <div class="card-title">
+                    <div class="row">
+
+                        <a href="{% url 'profile' %}"> <img class="rounded-circle"
+                                src="{{ user.profile.image_url.url }}" width="35" height="35"
+                                style="margin-top: 2px; margin-left: 15px;" alt=""></a>
+                        <p class="mt-2 ml-1">@{{ user.username }}</p>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card-text">
+                        <div>
+                            <img src="{{ post.image.url }}" width="500" height="300" />
+                        </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="ml-4">
+                    <a class='info' href="{% url 'postlike' post.pk %}">
+        
+                        {%if post.likes.id == user.id%}
+                        <i class="far fa-heart fa-1x text-danger"></i>
+                        {%else%}
+                        <i class="far fa-heart fa-1x text-danger"></i>
+                        {%endif%}
+                    </a>
+                    <span style="font-size:16px;">{{post.likes.count}}</span>
+
+                    <i class="far fa-comment fa-1x ml-5 text-black"></i>
+                    <p>{{ post.image_caption }}</p>
+                    <hr>
+                    <p class="text-muted"> Posted {{ post.date_posted|timesince}} Ago</p>
+                </div>
+
             </div>
-        </div>
-        <div class="dropdown-divider"></div>
-        <a href="{% url 'comment' %}"><button class="btn btn-outilne-info">Add Comment</button></a>
 
-        {% endfor %}
+            {% endfor %}
+        </div>
+
     </div>
-    <div class="col-4"></div>
 </div>
+
 {%endblock%}
