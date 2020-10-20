@@ -26,6 +26,16 @@ def post(request):
         form = PostForm()
     return render(request, 'instagram/post.html', {'form': form}) 
 
+def comment(request):
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('instagram-home')
+    else:        
+        form = CommentForm()
+    return render(request, 'instagram/comment.html', {'form': form}) 
+
 
 def followers(request):
     followers = Follow.objects.followers(request.user)
