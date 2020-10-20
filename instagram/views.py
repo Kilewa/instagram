@@ -3,24 +3,24 @@ from django.contrib.auth.decorators import login_required
 from .models import Post, User, Comment, Profile
 from . forms import CommentForm, PostForm
 from friendship.models import Friend, Follow, Block
-from .email import send_welcome_email
+# from .email import send_welcome_email
 
 
 
-def news_today(request):
-    if request.method == 'POST':
-        form = NewsLetterForm(request.POST)
-        if form.is_valid():
-            name = form.cleaned_data['your_name']
-            email = form.cleaned_data['email']
+# def news_today(request):
+#     if request.method == 'POST':
+#         form = NewsLetterForm(request.POST)
+#         if form.is_valid():
+#             name = form.cleaned_data['your_name']
+#             email = form.cleaned_data['email']
 
-            recipient = NewsLetterRecipients(name = name,email =email)
-            recipient.save()
-            send_welcome_email(name,email)
+#             recipient = NewsLetterRecipients(name = name,email =email)
+#             recipient.save()
+#             send_welcome_email(name,email)
 
-            HttpResponseRedirect('home')
-            #.................
-    return render(request, 'instagram/home.html')
+#             HttpResponseRedirect('home')
+#             #.................
+#     return render(request, 'instagram/home.html')
 
 
 @login_required

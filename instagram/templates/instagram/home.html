@@ -5,6 +5,14 @@
 {%block content%}
 <div class="row">
     <div class="col-4"></div>
+    <div class="col-4">
+        <div class="post card">
+            <a href="{% url 'post' %}"><button class="btn btn-outilne-info">Add A Post</button></a><br>
+        </div>
+    </div>
+    <div class="col-4"></div>
+   
+    <div class="col-4"></div>
     <div class="col-4 card">
         {% for post in posts %}
         {% if post.image %}
@@ -24,7 +32,7 @@
             </div>
         </div>
         <div class="dropdown-divider"></div>
-        <!-- <a href="{% url 'comment' %}"><button class="btn btn-outilne-info">Add Comment</button></a> -->
+        <a href="{% url 'comment' %}"><button class="btn btn-outilne-info">Add Comment</button></a>
 
         {% endfor %}
     </div>
