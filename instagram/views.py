@@ -15,7 +15,6 @@ def home(request):
     return render(request, 'instagram/home.html', context)
 
 
-
 def post(request):
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
