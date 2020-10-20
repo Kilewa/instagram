@@ -32,10 +32,10 @@ def home(request):
         if comment_form.is_valid():
             comment = comment_form.save(commit=False)
             comment.profile = Profile.get_profile_by_user_id(request.user.id)
-            comment.image = post
+            comment.post = post
             comment.save()
             comment_form = CommentForm()
-            Image.objects.filter(id=post_id).update(comments=F("comments") + 1)
+            Post.objects.filter(id=post_id).update(comments=F("comments") + 1)
             messages.success(request, f'Comment successfully added')
             return redirect("home", post_id)
     else:

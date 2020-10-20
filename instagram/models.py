@@ -39,7 +39,7 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
-	image = models.ForeignKey(Image, on_delete=models.CASCADE)
-	profile = models.ForeignKey(Profile,  on_delete=models.CASCADE)
+	image = models.ForeignKey(Post, on_delete=models.CASCADE,default='')
+	profile = models.ForeignKey(Profile,  on_delete=models.CASCADE,default='')
 	comment = models.CharField(max_length=255)
-	comment_date = models.DateTimeField(auto_now_add=True)
+	comment_date = models.DateTimeField(auto_now_add=True, null=True)
