@@ -1,0 +1,3 @@
+Hello {{name}}
+
+Welcome to Instagramlite application. You can register see and post your photos and your friends too. 
