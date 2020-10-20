@@ -6,12 +6,12 @@
 <div class="row">
     <div class="col-4"></div>
     <div class="col-4">
-        <div class="post card">
-            <a href="{% url 'post' %}"><button class="btn btn-outilne-info">Add A Post</button></a><br>
+        <div class="post">
+            <a href="{% url 'post' %}"><button style="padding: 30px;" class="btn btn-info">Add A Post</button></a>
         </div>
     </div>
     <div class="col-4"></div>
-   
+
     <div class="col-4"></div>
     <div class="col-4 card">
         {% for post in posts %}

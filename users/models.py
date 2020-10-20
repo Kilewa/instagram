@@ -15,6 +15,9 @@ class Profile(models.Model):
         return f'{self.user.username} Profile'
 
 
+    def get_all_profiles(cls):
+        profiles = cls.objects.all()
+        return profiles
 
 
 
