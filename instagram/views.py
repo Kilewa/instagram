@@ -25,3 +25,17 @@ def post(request):
     else:        
         form = PostForm()
     return render(request, 'instagram/post.html', {'form': form}) 
+
+
+def followers(request):
+    followers = Follow.objects.followers(request.user)
+    following = Follow.objects.following(request.user)
+    # following_created = Following.objects.add_follower(request.user, other_user)
+
+    context = {
+        'followers': followers,
+        'following': following,
+        # 'following_created':following_created
+    }
+
+    return render(request, 'instagram/followers.html', context)

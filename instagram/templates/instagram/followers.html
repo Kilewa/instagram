@@ -1,0 +1,20 @@
+{%extends 'instagram/base.html'%}
+{% load static%}
+{%load bootstrap4%}
+{% load friendship %}
+
+{%block content%}
+<div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+        {% for follower in followers %}
+        <h1>Followers</h1>
+        
+        {% followers request.user %}
+        {% following request.user %}
+
+        {% endfor %}
+    </div>
+    <div class="col-4"></div>
+</div>
+{%endblock%}

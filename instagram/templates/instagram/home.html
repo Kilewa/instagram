@@ -5,13 +5,25 @@
 {%block content%}
 <div class="row">
     <div class="col-4"></div>
-    <div class="col-4">
+    <div class="col-4 card">
         {% for post in posts %}
         {% if post.image %}
+
         <img src="{{ post.image.url }}" alt="post.image_name" width="400" height="500">
         {% endif %}
-
-        <h4>{{ post.image_name}}</h4>
+        <div class="row">
+            <div class="col-4 nav-item"><a class="nav-link" href="#"><span><i class="fa fa-heart"></i></span></a></div>
+            <div class="col-4 nav-item"><a class="nav-link" href="#"><span><i class="far fa-comment"></i></span></a></div>
+            <div class="col-4 nav-item"><a class="nav-link" href="#"><span><i class="far fa-paper-plane "></i></span></a></div>
+        </div>
+        <p>40 likes</p>
+        <div class="row">
+            <div class="col-6"> <a href="{% url 'profile'%}"><p>{{ user.username}}</p></a> </div>
+            <div class="col-6">
+                <p>{{ post.image_caption}}</p>
+            </div>
+        </div>
+        <div class="dropdown-divider"></div>
 
         {% endfor %}
     </div>
