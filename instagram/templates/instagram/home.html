@@ -1,10 +1,14 @@
 {%extends 'instagram/base.html'%}
 {% load static%}
+{% load crispy_forms_tags %}
 {%load bootstrap4%}
+
+
 
 {%block content%}
 <div class="container">
-    <a href="{% url 'post'%}" class="btn btn-outline-info mt-20"><span><i class="fas fa-upload"></i></span> Upload A Post</a>
+    <a href="{% url 'post'%}" class="btn btn-outline-info mt-20"><span><i class="fas fa-upload"></i></span> Upload A
+        Post</a>
     <div class="row">
         <div class="post text-center" style="justify-content: center;">
             {% for post in posts %}
@@ -39,6 +43,21 @@
 
                     <i class="far fa-comment fa-1x ml-5 text-black"></i>
                     <p>{{ post.image_caption }}</p>
+                    <div id="comment" class="comment-form">
+                        <form class="text-center" action="" method="post" enctype="multipart/form-data">
+                            {%csrf_token%}
+                            <div class="row no-gutters">
+                                <div class="col-10">
+                                    <input type="hidden" id="post_id" class="" value="{{post.id}}">
+                                    {% bootstrap_form form %}
+                                </div>
+                                <div class="col-2">
+                                    <input type="submit" style="border: 0;" id="defaultLoginFormEmail"
+                                        class="form-control" value="Post">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                     <hr>
                     <p class="text-muted"> Posted {{ post.date_posted|timesince}} Ago</p>
                 </div>

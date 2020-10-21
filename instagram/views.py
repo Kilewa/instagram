@@ -26,7 +26,7 @@ from friendship.models import Friend, Follow, Block
 @login_required
 def home(request):
     posts = Post.get_all_images()
-    
+
     context = {
         'posts': posts,
     }
@@ -42,17 +42,6 @@ def post(request):
     else:
         form = PostForm()
     return render(request, 'instagram/post.html', {'form': form})
-
-
-def comment(request):
-    if request.method == 'POST':
-        form = CommentForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('instagram-home')
-    else:
-        form = CommentForm()
-    return render(request, 'instagram/comment.html', {'form': form})
 
 
 def followers(request):
@@ -83,3 +72,28 @@ def postlike(request, image_id):
         return render(request, 'instagram/home.html')
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
+
+def comment(request, post_id):
+    post = Post.get_image_by_id(post_id)
+    post_comments = Comment.objects.filter(image=post)
+    if request.method == "POST":
+        comment_form = CommentForm(request.POST)
+
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
+            comment.profile = Profile.get_profile_by_userid(request.user.id)
+            comment.image = post
+            comment.save()
+            comment_form = CommentForm()
+            Post.objects.filter(id=post_id).update(comments=F("comments") + 1)
+            messages.success(request, f'Comment successfully added')
+            return redirect("post", post_id)
+    else:
+        comment_form = CommentForm()
+    context = {
+        'profile': request.user.profile,
+        'post': post,
+        'form': comment_form,
+        'comments': post_comments,
+    }
+    return render(request, 'instagram/home.html', context)
