@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+.navbar-fixed{
+    position: fixed;
+}
+
 .card1 {
     text-align: center;
     justify-content: center;

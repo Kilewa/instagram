@@ -4,6 +4,7 @@
 
 {%block content%}
 <div class="container">
+    <a href="{% url 'post'%}" class="btn btn-outline-info mt-20"><span><i class="fas fa-upload"></i></span> Upload A Post</a>
     <div class="row">
         <div class="post text-center" style="justify-content: center;">
             {% for post in posts %}
