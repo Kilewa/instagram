@@ -82,3 +82,4 @@ def postlike(request, image_id):
         is_liked = True
         return render(request, 'instagram/home.html')
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
