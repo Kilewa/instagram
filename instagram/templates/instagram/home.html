@@ -49,7 +49,7 @@
                             <div class="row no-gutters">
                                 <div class="col-10">
                                     <input type="hidden" id="post_id" class="" value="{{post.id}}">
-                                    {% bootstrap_form form %}
+                                    {{ form | crispy  }}
                                 </div>
                                 <div class="col-2">
                                     <input type="submit" style="border: 0;" id="defaultLoginFormEmail"
