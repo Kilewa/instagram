@@ -22,6 +22,11 @@ class Profile(models.Model):
         self.save()
 
     @classmethod
+    def get_all_profiles(cls):
+        profiles = cls.objects.all()
+        return profiles
+
+    @classmethod
     def get_profile_by_user_id(cls, userid):
         '''
         Returns profile based on user id
